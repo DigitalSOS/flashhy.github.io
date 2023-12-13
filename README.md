@@ -1,2 +1,0 @@
-# flashhy.github.io
-FLasshy
