@@ -1,9 +1,9 @@
-//apple.js
+// script.js
 document.getElementById('myButton').addEventListener('click', playButtonClickSound);
 
 function playButtonClickSound() {
-  // Create an Audio object and provide the path to your sound file
-  var audio = new Audio('apple.mp3');
+  // Get the audio element
+  var audio = document.getElementById('clickSound');
   
   // Play the audio
   audio.play();
