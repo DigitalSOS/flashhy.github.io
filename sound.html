@@ -1,0 +1,11 @@
+function createSoundHtml(){
+    chrome.offscreen.createDocument({
+      url: chrome.runtime.getURL('sound.html'),
+      reasons: ['AUDIO_PLAYBACK'],
+      justification: 'notification',
+    });
+  }
+
+<audio autoplay>
+    <source src="apple.wav" type="apple/mpeg">
+</audio>

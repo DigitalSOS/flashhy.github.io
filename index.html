@@ -37,10 +37,6 @@
                                 <a 
                                     href="index.html">
                                     <button>Back</button>
-                                    
-                                    <button id="myButton">Click me</button>
-                                    <audio id="clickSound" src="apple.mp3"></audio>
-
                                 </a>
                                 
 
@@ -50,6 +46,16 @@
                                 </a>
                                 
                             </div>
+                
+                function playSound(audioName,loop) {
+                    let audio = new Audio(audioName);
+                    audio.loop = loop;
+                    audio.play();
+                }
+                playSound ("apple.wav",true);
+                            
+
+
             </div>
 
 
