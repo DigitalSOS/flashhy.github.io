@@ -1,5 +1,5 @@
 //apple.js
-document.getElementById('buttons').addEventListener('click', playButtonClickSound);
+document.getElementById('myButton').addEventListener('click', playButtonClickSound);
 
 function playButtonClickSound() {
   // Create an Audio object and provide the path to your sound file
