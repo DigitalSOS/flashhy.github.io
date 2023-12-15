@@ -1,11 +1,19 @@
-function createSoundHtml(){
-    chrome.offscreen.createDocument({
-      url: chrome.runtime.getURL('sound.html'),
-      reasons: ['AUDIO_PLAYBACK'],
-      justification: 'notification',
-    });
-  }
-
-<audio autoplay>
-    <source src="apple.wav" type="apple/mpeg">
-</audio>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="play">Play</button>
+    <script>
+        let play = document.getElementById("play");
+            function playMusic() {
+                let audio = new Audio("apple.mp3.m4a");
+                audio.play()
+            }
+            play.addEventListener("click", playMusic);
+    </script>
+</body>
+</html>
