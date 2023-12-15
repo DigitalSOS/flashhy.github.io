@@ -1,5 +1,5 @@
 :root {
-	--primary: rgb(222, 64, 64);
+	--primary: rgba(255, 0, 0, 0.795);
 	--grey: #black;
 
 	--card-width: 400px;
@@ -15,7 +15,7 @@
 
 main {
 	min-height: 100vh;
-	background-image: linear-gradient(to bottom right, rgb(220, 63, 63), rgb(30, 213, 82));
+	background-image: linear-gradient(to bottom left, rgb(246, 50, 39), rgb(1, 242, 89));
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -54,7 +54,7 @@ main {
 }
 
 .card:hover {
-	--card-width: 700px;
+	--card-width: 500px;
 	--image-width: calc(var(--card-width) / 2);
 }
 
@@ -106,18 +106,18 @@ main {
 	cursor: pointer;
 
 	display: block;
-	padding: 0.5rem 1rem;
+	padding: 0.5rem 3rem;
 	border-radius: 1rem;
-	background-color: rgb(232, 58, 58);
-	color: rgb(41, 226, 134);
-	font-size: 1.25rem;
-	font-weight: 700;
+	background-color: var(--primary);
+	color: #00ff66;
+	font-size: 1.7rem;
+	font-weight: 500;
 	margin: 0 0.5rem;
 	min-width: 145px;
 	transition: 0.4s;
 }
 
 .card .buttons button:hover {
-	box-shadow: 0 2px 6px rgb(41, 226, 134);
-	transform: translateY(-0.5rem) scale(1.8);
+	box-shadow: 0 2px 6px rgb(255, 1, 1);
+	transform: translateY(-0.5rem) scale(2);
 }
