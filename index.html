@@ -13,6 +13,16 @@
 
 </head>
 <body>
+    <audio id="song">
+        <source src="apple.mp3.m4a">
+    </audio>
+
+    <script>
+        window.addEventListener('click', ()=> {
+            document.getElementById("song") .play();
+        }) 
+    </script>
+    
         <main>
 
             <div class = "card">
@@ -33,33 +43,23 @@
                         
 
                             <div class = "buttons">
-
-                                <a 
-                                    href="index.html">
-                                    <button id="back">Back</button>
-                                    <script>
-                                        let back = document.getElementById("back");
-                                            function playMusic() {
-                                                let audio = new Audio("apple.mp3.m4a");
-                                                audio.back()
-                                            }
-                                            play.addEventListener("click", playMusic);
-                                        </script>
-                                </a>
-                                
-
+                            
                                 <a 
                                     href="watermelon_1.html">
                                     <button>Next</button>
                                 </a>
-                                
+                          
                             </div>
                                         
 
 
             </div> 
-
+    
         </main>
+
+
+        
+
 </body>
 </html>
 
