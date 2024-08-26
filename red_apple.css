@@ -1,5 +1,5 @@
 :root {
-	--primary: rgba(255, 0, 0, 0.795);
+	--primary: rgb(255, 0, 0);
 	--grey: #black;
 
 	--card-width: 400px;
@@ -109,7 +109,7 @@ main {
 	padding: 0.5rem 3rem;
 	border-radius: 1rem;
 	background-color: var(--primary);
-	color: #d4ff00;
+	color: #000000;
 	font-size: 1.7rem;
 	font-weight: 500;
 	margin: 0 0.5rem;
@@ -118,6 +118,6 @@ main {
 }
 
 .card .buttons button:hover {
-	box-shadow: 0 2px 6px rgb(255, 1, 1);
+	box-shadow: 0 2px 6px rgb(68, 182, 72);
 	transform: translateY(-0.5rem) scale(2);
 }
