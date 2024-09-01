@@ -1,5 +1,5 @@
 :root {
-	--primary: rgba(81, 0, 255, 0.736);
+	--primary: rgba(85, 255, 110, 0.871);
 	--grey: #black;
 
 	--card-width: 400px;
@@ -17,7 +17,7 @@
 
 main {
 	min-height: 100vh;
-	background-image: linear-gradient(to bottom right , rgb(157, 0, 255), rgb(82, 2, 255));
+	background-image: linear-gradient(to bottom right , rgb(255, 204, 0), rgb(230, 255, 2));
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -111,7 +111,7 @@ main {
 	padding: 0.5rem 3rem;
 	border-radius: 1rem;
 	background-color: var(--primary);
-	color: #00ff66;
+	color: #00913a;
 	font-size: 1.7rem;
 	font-weight: 500;
 	margin: 0 0.5rem;
@@ -120,6 +120,6 @@ main {
 }
 
 .card .buttons button:hover {
-	box-shadow: 0 2px 6px rgb(1, 255, 48);
+	box-shadow: 0 2px 6px rgb(0, 255, 47);
 	transform: translateY(-1rem) scale(1.3);
 }
