@@ -8,51 +8,62 @@
     <title>Flasshy</title>
 
 
-    <link rel = "stylesheet" href = "orange.css" />
+    <link rel = "stylesheet" href = "red_apple.css" />
 
 
 </head>
 <body>
+    <audio id="song">
+        <source src="apples.m4a">
+    </audio>
+
+    <script>
+        window.addEventListener('click', ()=> {
+            document.getElementById("song") .play();
+        }) 
+    </script>
+    
         <main>
 
             <div class = "card">
 
                 <div class = "image">
-                    <img src = "orange.jpg" />
+                    <img src = "red-apple.png" />
                 </div>
 
                     <div class = "name">
-                        ORANGE
+                        APPLE
                     </div>
 
                         <div class = "content">
                             <p>
-                                Oranges are famous for being packed with Vitamin C.
+                                Apples come in many colors: red, green, and yellow!
                             </p>
                         </div>
-                           
+                        
 
                             <div class = "buttons">
+                            
+                                <a 
+                                    href="corn.html">
+                                    <button>Back</button>
+                                </a>
 
                                 <a 
                                     href="watermelon_1.html">
-                                    <button>Back</button>
-                                </a>
-                                
-
-                                <a 
-                                    href="blueberry_3.html">
                                     <button>Next</button>
-                                
+                                </a>
+                          
                             </div>
-            </div>
+                                        
 
 
-
-            
-
-
+            </div> 
+    
         </main>
+
+
+        
 
 </body>
 </html>
