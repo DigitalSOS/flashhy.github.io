@@ -4,71 +4,52 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Flasshy</title>
-
-
-    <link rel = "stylesheet" href = "red_apple.css" />
-
-
+    <title>Fruits & Vegetables</title>
+    <link rel="stylesheet" href="CSS/red_apple.css" />
 </head>
+
+<body>
+    <!-- Home Button -->
+    <div class="home-button" id="home-button">
+        <img src="/Images/home1.png" alt="Home Icon">
+    </div>
+
+</body>
+
 <body>
     <audio id="song">
-        <source src="apples.m4a">
+        <source src="/Audio/apples.m4a">
     </audio>
 
+</body> 
+
+<body>
+    <main>
+        <div class="card">
+            <div class="image" id="image-container">
+                <img src="/Images/red-apple.png" />
+            </div>
+            <div class="name">Apple</div>
+            <div class="content">
+                <p>Apples come in many colors: red, green, and yellow!</p>
+            </div>
+            <div class="buttons">
+                <a href="watermelon_1.html"><button>Next</button></a>
+            </div>
+        </div> 
+    </main>
+
+
+
     <script>
-        window.addEventListener('click', ()=> {
-            document.getElementById("song") .play();
-        }) 
+        document.getElementById('image-container').addEventListener('click', function() {
+            document.getElementById('song').play();
+        });
     </script>
-    
-        <main>
 
-            <div class = "card">
+    <!-- Calling Home Button Java script -->
+    <script src="JS/home_button.js"></script>
 
-                <div class = "image">
-                    <img src = "red-apple.png" />
-                </div>
-
-                    <div class = "name">
-                        APPLE
-                    </div>
-
-                        <div class = "content">
-                            <p>
-                                Apples come in many colors: red, green, and yellow!
-                            </p>
-                        </div>
-                        
-
-                            <div class = "buttons">
-                            
-                                <a 
-                                    href="carrots.html">
-                                    <button>Back</button>
-                                </a>
-
-                                <a 
-                                    href="watermelon_1.html">
-                                    <button>Next</button>
-                                </a>
-                          
-                            </div>
-                                        
-
-
-            </div> 
-    
-        </main>
-
-
-        
 
 </body>
 </html>
-
-
-
-
-

@@ -4,69 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Flasshy</title>
-
-
-    <link rel = "stylesheet" href = "orange.css" />
-
-
+    <title>Fruits & Vegetables</title>
+    <link rel="stylesheet" href="CSS/orange.css" />
 </head>
+
 <body>
-        <main>
-            <audio id="song">
-                <source src="orange.m4a">
-            </audio>
-        
-            <script>
-                window.addEventListener('click', ()=> {
-                    document.getElementById("song") .play();
-                }) 
-            </script>
+    <!-- Home Button -->
+    <div class="home-button" id="home-button">
+        <img src="/Images/home1.png" alt="Home Icon">
+    </div>
 
-            <div class = "card">
+</body>
 
-                <div class = "image">
-                    <img src = "orange.jpg" />
-                </div>
+<body>
+    <audio id="song">
+        <source src="/Audio/orange.m4a">
+    </audio>
 
-                    <div class = "name">
-                        ORANGE
-                    </div>
+</body> 
 
-                        <div class = "content">
-                            <p>
-                                Oranges are famous for being packed with Vitamin C.
-                            </p>
-                        </div>
-                           
-
-                            <div class = "buttons">
-
-                                <a 
-                                    href="watermelon_1.html">
-                                    <button>Back</button>
-                                </a>
-                                
-
-                                <a 
-                                    href="blueberry_3.html">
-                                    <button>Next</button>
-                                
-                            </div>
+<body>
+    <main>
+        <div class="card">
+            <div class="image" id="image-container">
+                <img src="/Images/orange.jpg" />
+            </div>
+            <div class="name">Oranges</div>
+            <div class="content">
+                <p>Oranges are famous for being packed with Vitamin C.</p>
+            </div>
+            <div class="buttons">
+                <a href="watermelon_1.html"><button>Back</button></a>
+                <a href="blueberry_3.html"><button>Next</button></a>
             </div>
 
+    </main>
 
 
-            
 
+    <script>
+        document.getElementById('image-container').addEventListener('click', function() {
+            document.getElementById('song').play();
+        });
+    </script>
+    
+    <!-- Calling Home Button Java script -->
+    <script src="JS/home_button.js"></script>
 
-        </main>
 
 </body>
 </html>
-
-
-
-
-

@@ -1,5 +1,5 @@
 :root {
-	--primary: rgb(238, 255, 0);
+	--primary: rgb(254, 140, 0);
 	--grey: #black;
 
 	--card-width: 400px;
@@ -17,10 +17,28 @@
 
 main {
 	min-height: 100vh;
-	background-image: linear-gradient(to top right, rgb(183, 130, 5), rgb(255, 251, 0));
+	background-image: linear-gradient(to top left, rgb(229, 184, 48), rgb(233, 109, 15));
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+/* Style for the Home Button */
+.home-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+}
+.home-button img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+.home-button img.clicked {
+    transform: rotate(360deg);
 }
 
 .card {
@@ -50,7 +68,6 @@ main {
 
 .card .image img {
 	width: 100%;
-	height: 100%;
 	border-radius: 100%;
 	transition: 0.5s;
 	border: 5px solid var(--primary);
@@ -109,11 +126,11 @@ main {
 	cursor: pointer;
 
 	display: block;
-	padding: 0.5rem 3rem;
+	padding: 0.5rem 1rem;
 	border-radius: 1rem;
 	background-color: var(--primary);
-	color: #ffc400;
-	font-size: 1.7rem;
+	color: #ffd500;
+	font-size: 1.25rem;
 	font-weight: 500;
 	margin: 0 0.5rem;
 	min-width: 145px;
@@ -121,6 +138,6 @@ main {
 }
 
 .card .buttons button:hover {
-	box-shadow: 0 2px 6px rgb(255, 183, 0);
+	box-shadow: 0 2px 6px rgb(255, 72, 0);
 	transform: translateY(-1rem) scale(1.3);
 }
