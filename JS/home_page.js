@@ -27,7 +27,7 @@ i18next.init({
   resources: {
     en: {
       translation: {
-        "welcome": "Welcome to Flasshy",
+        "welcome": "Welcome to Flashhy",
         "fruits": "Fruits & Vegetables",
         "about": "About",
 
@@ -35,7 +35,7 @@ i18next.init({
     },
     es: {
       translation: {
-        "welcome": "Bienvenido a Flasshy",
+        "welcome": "Bienvenido a Flashhy",
         "fruits": "Frutas y Verduras",
         "about": "Informacion",
       }
