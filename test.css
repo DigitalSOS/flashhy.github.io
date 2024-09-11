@@ -1,0 +1,59 @@
+
+
+/* Style for the Home Button */
+.home-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+}
+.home-button img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+.home-button img.clicked {
+    transform: rotate(360deg);
+}
+
+/* Fruits */
+.fruits {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* Fruit animations */
+.fruit {
+    width: 100px;
+    position: absolute;
+    animation: scatterAndLoop 8s ease-in-out infinite;
+}
+
+/* Continuously scattered from random sides */
+@keyframes scatterAndLoop {
+    0% {
+        transform: translate(var(--random-x), var(--random-y)) scale(1);
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    50% {
+        transform: translate(0, 0) scale(1.2); /* Zoom in slightly at the center */
+    }
+    75% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--next-random-x), var(--next-random-y)) scale(1);
+        opacity: 0;
+    }
+}

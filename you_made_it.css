@@ -18,12 +18,12 @@ body {
     width: 100%;
     height: 100%;
     background-color: #6d79fcb8; /* Dimmed background */
-    z-index: 1; /* Behind all other content */
+    z-index: 0; /* Behind all other content */
 }
 
 
 
-/* Home Button */
+/* Style for the Home Button */
 .home-button {
     position: absolute;
     top: 10px;
@@ -36,7 +36,11 @@ body {
 .home-button img {
     width: 100%;
     height: 100%;
-    transition: none;
+    transition: transform 0.3s ease;
+    
+}
+.home-button img.clicked {
+    transform: rotate(360deg);
 }
 
 /* Basic reset */
@@ -49,7 +53,7 @@ body {
 
 /* Message */
 .message {
-    font-size: 3em;
+    font-size: 2rem;
     color: #ffffff;
     font-weight: bold;
     text-align: center;
