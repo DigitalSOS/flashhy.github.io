@@ -4,7 +4,7 @@ document.getElementById('home-button').addEventListener('click', function() {
     homeIcon.classList.add('clicked');
     setTimeout(() => {
         homeIcon.classList.remove('clicked');
-        window.location.href = 'index.html'; // Redirect to home after animation
+        window.location.href = 'home_page.html'; // Redirect to home after animation
     }, 300);
 });
 

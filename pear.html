@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits & Vegetables</title>
+    <link rel="stylesheet" href="pear.css" />
+</head>
+
+<body>
+    <!-- Home Button -->
+    <div class="home-button" id="home-button">
+        <img src="home1.png" alt="Home Icon">
+    </div>
+
+</body>
+
+<body>
+    <audio id="song">
+        <source src="pear.mp3">
+    </audio>
+
+</body> 
+
+<body>
+    <main>
+        <div class="card">
+            <div class="image" id="image-container">
+                <img src="pear.png" />
+            </div>
+            <div class="name">Pear</div>
+            <div class="content">
+                <p>Pears are great for hydration because they are mostly made of water—about 84%!</p>
+            </div>
+            <div class="buttons">
+                <a href="cherries.html"><button>Back</button></a>
+                <a href="you_made_it.html"><button>Next</button></a>
+            </div>
+
+    </main>
+
+
+
+    <script>
+        document.getElementById('image-container').addEventListener('click', function() {
+            document.getElementById('song').play();
+        });
+    </script>
+    
+    <!-- Calling Home Button Java script -->
+    <script src="home_button.js"></script>
+
+
+</body>
+</html>

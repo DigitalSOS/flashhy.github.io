@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits & Vegetables</title>
+    <link rel="stylesheet" href="cherries.css" />
+</head>
+
+<body>
+    <!-- Home Button -->
+    <div class="home-button" id="home-button">
+        <img src="home1.png" alt="Home Icon">
+    </div>
+
+</body>
+
+<body>
+    <audio id="song">
+        <source src="cherries.mp3">
+    </audio>
+
+</body> 
+
+<body>
+    <main>
+        <div class="card">
+            <div class="image" id="image-container">
+                <img src="cherries.png" />
+            </div>
+            <div class="name">Cherries</div>
+            <div class="content">
+                <p>Cherries can be sweet or sour, depending on the type, and both are delicious!</p>
+            </div>
+            <div class="buttons">
+                <a href="peach.html"><button>Back</button></a>
+                <a href="pear.html"><button>Next</button></a>
+            </div>
+
+    </main>
+
+
+
+    <script>
+        document.getElementById('image-container').addEventListener('click', function() {
+            document.getElementById('song').play();
+        });
+    </script>
+    
+    <!-- Calling Home Button Java script -->
+    <script src="home_button.js"></script>
+
+
+</body>
+</html>
