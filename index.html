@@ -3,37 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Congratulations Celebration</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Flashhy</title>
+    <link rel="stylesheet" href="home_page.css">
 </head>
 <body>
-    <div class="background-overlay"></div>
+    <div class="animated-background"></div>
 
-    <div class="fireworks"></div>
-
-    <div class="message">
-        <span>C</span><span>o</span><span>n</span><span>g</span><span>r</span><span>a</span><span>t</span><span>u</span><span>l</span><span>a</span><span>t</span><span>i</span><span>o</span><span>n</span><span>s</span>&nbsp;
-        <br/> 
-        <span>Y</span><span>o</span><span>u</span>&nbsp;<span>D</span><span>i</span><span>d</span>&nbsp;<span>I</span><span>t</span><span>!</span>
+    <!-- Language Globe Button -->
+    <div class="language-globe">
+        <button id="globe-button" onclick="toggleLanguageBanner()">
+            <img src="language_icon.png" alt="Globe Icon" />
+        </button>
     </div>
 
-    <div class="fruits">
-        <img src="red-apple.png" class="fruit" alt="Apple">
-        <img src="banana.png" class="fruit" alt="Banana">
-        <img src="cherries.png" class="fruit" alt="Cherry">
-        <img src="pear.png" class="fruit" alt="Pear">
-        <img src="kiwi.jpg" class="fruit" alt="Kiwi">
-        <img src="orange.jpg" class="fruit" alt="Orange">
-        <img src="mango.png" class="fruit" alt="Mango">
-        <img src="corn.jpg" class="fruit" alt="Corn">
-        <img src="pineapple.png" class="fruit" alt="Pinapple">
-        <img src="peach.png" class="fruit" alt="Peach">
-        <img src="blueberry.png" class="fruit" alt="Blueberry">
-        <img src="avocado.png" class="fruit" alt="Avocado">
-        <img src="carrots.png" class="fruit" alt="Carrots">
-        <img src="strawberry.png" class="fruit" alt="Strawberry">
+    <!-- Language Selection Banner -->
+    <div id="language-banner" class="language-banner hidden">
+        <button onclick="changeLanguage('en')">English</button>
+        <button onclick="changeLanguage('es')">Español</button>
+        <!-- Add more languages here -->
     </div>
 
-    <script src="script.js"></script>
+    <div class="container">
+        <h1 class="enhanced-bounce" id="welcome-text">Welcome to Flashhy</h1>
+        <div class="button-container">
+            <button class="animated-button" onclick="navigateTo('red_apples.html')"><span id="fruits-btn">Fruits & Vegetables</span></button>
+            <button class="animated-button" onclick="navigateTo('about.html')"><span id="about-btn">About</span></button>
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/i18next@21.6.3/i18next.min.js"></script>
+    <script src="home_page.js"></script>
 </body>
 </html>
