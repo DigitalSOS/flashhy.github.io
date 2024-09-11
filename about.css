@@ -37,9 +37,9 @@ body {
 
 .enhanced-bounce {
     font-size: 2rem;
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.4);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.804);
     animation: enhancedBounce 2s infinite;
-    background: linear-gradient(45deg, rgba(255, 255, 255, 0), rgba(222, 222, 222, 0.496));
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.993), rgba(6, 6, 6, 0.496));
     background-size: 700% 700%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

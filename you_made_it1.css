@@ -17,13 +17,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #6d79fcb8; /* Dimmed background */
-    z-index: 1; /* Behind all other content */
+    background-color: #0015ffb9; /* Semi-transparent black */
+    
 }
 
-
-
-/* Home Button */
+/* Style for the Home Button */
 .home-button {
     position: absolute;
     top: 10px;
@@ -31,7 +29,7 @@ body {
     cursor: pointer;
     width: 100px;
     height: 100px;
-    z-index: 2;
+    
 }
 .home-button img {
     width: 100%;
@@ -39,15 +37,7 @@ body {
     transition: none;
 }
 
-/* Basic reset */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-}
 
-/* Message */
 .message {
     font-size: 3em;
     color: #ffffff;
@@ -65,12 +55,11 @@ body {
 }
 
 /* Target each span (letter) */
-/* Message flowing back and forth */
 .message span {
     opacity: 0;
     position: relative;
     display: inline-block;
-    animation: floatLetterBackAndForth 3s ease-in-out infinite alternate;
+    animation: floatLetter 1s ease-in-out forwards;
 }
 
 .message span:nth-child(1) { animation-delay: 0.1s; }
@@ -99,55 +88,42 @@ body {
 .message span:nth-child(24) { animation-delay: 0.3s; }
 /* Continue nth-child delays for all letters */
 
-@keyframes floatLetterBackAndForth {
+@keyframes floatLetter {
     0% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-    50% {
-        transform: translateX(30px); /* Move to the right */
+        transform: translateY(100px);
+        opacity: 0;
     }
     100% {
-        transform: translateX(-30px); /* Move to the left */
+        transform: translateY(-50px);
+        opacity: 1;
     }
 }
 
 /* Fruits */
 .fruits {
     position: absolute;
+    bottom: 3;
     width: 100%;
     height: 100%;
+    opacity: 2s;
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
-    z-index: 2;
-    overflow: hidden;
+    z-index: 3;
 }
 
-/* Fruit animations */
 .fruit {
     width: 100px;
-    position: absolute;
-    animation: scatterAndLoop 8s ease-in-out infinite;
+    animation: floatFruit 5s ease-in-out infinite;
 }
 
-/* Continuously scattered from random sides */
-@keyframes scatterAndLoop {
+@keyframes floatFruit {
     0% {
-        transform: translate(var(--random-x), var(--random-y)) scale(1);
+        transform: translateY(100%);
         opacity: 0;
-    }
-    25% {
-        opacity: 1;
-    }
-    50% {
-        transform: translate(0, 0) scale(1.2); /* Zoom in slightly at the center */
-    }
-    75% {
-        opacity: 1;
     }
     100% {
-        transform: translate(var(--next-random-x), var(--next-random-y)) scale(1);
-        opacity: 0;
+        transform: translateY(-200%);
+        opacity: 1;
     }
 }
