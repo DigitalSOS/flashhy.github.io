@@ -28,7 +28,7 @@ i18next.init({
     en: {
       translation: {
         "welcome": "Welcome to Flashhy",
-        "fruits": "Fruits & Vegetables",
+        "fruits": "Fruits & Veggies",
         "about": "About",
 
       }

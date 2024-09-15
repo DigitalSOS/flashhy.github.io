@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashhy Home</title>
-    <link rel="stylesheet" href="about.css">
+    <title>Flashhy</title>
+    <link rel="stylesheet" href="home_page.css">
 </head>
 <body>
     <div class="animated-background"></div>
@@ -20,23 +20,26 @@
     <div id="language-banner" class="language-banner hidden">
         <button onclick="changeLanguage('en')">English</button>
         <button onclick="changeLanguage('es')">Español</button>
-        <!-- Add more languages here -->
+        <button onclick="changeLanguage('ar')">Arabic</button>
     </div>
 
     <div class="container">
-        <h1 class="enhanced-bounce" id="welcome-text">Welcome to Flasshy</h1>
-        <h1 class="enhanced-bounce" id="version-text">Flashhy Version 2.0</h1>
+        <h1 class="enhanced-bounce" id="welcome-text">Welcome to Flashhy</h1>
+        
         <div class="button-container">
-            <button class="animated-button" onclick="navigateTo('index.html')"><span id="return-home-btn">Return Home Page</span></button>
-
-            <div class="next-line-button-container">
-                <button class="animated-button" onclick="navigateTo('test2.html')"><span id="beta-btn">Beta</span></button>
-            </div>
+            <button class="animated-button" onclick="navigateTo('red_apples.html')"><span id="shapes-btn">Shapes</span></button>
         </div>
 
-    </div>
+        <div class="next-line-button-container">
+            <button class="animated-button" onclick="navigateTo('red_apples.html')"><span id="fruits-btn">Fruits & Veggies</span></button>
+        </div>
+
+        <div class="more-button-container">
+            <button class="animated-button" onclick="navigateTo('about.html')"><span id="about-btn">About</span></button>
+        </div>
 
     <script src="https://unpkg.com/i18next@21.6.3/i18next.min.js"></script>
-    <script src="about.js"></script>
+    <script src="home_page3.js"></script>
+
 </body>
 </html>

@@ -1,59 +1,326 @@
-
-
-/* Style for the Home Button */
-.home-button {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    cursor: pointer;
-    width: 100px;
-    height: 100px;
-}
-.home-button img {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease;
-}
-.home-button img.clicked {
-    transform: rotate(360deg);
+/* Improved styles for a balanced look */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
 }
 
-/* Fruits */
-.fruits {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+h1 {
+    margin-top: 20px;
+    color: #333;
+    font-size: 36px;
+}
+
+.game-container {
     display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    z-index: 2;
-    overflow: hidden;
+    justify-content: center;
+    margin: 50px auto;
 }
 
-/* Fruit animations */
-.fruit {
-    width: 100px;
-    position: absolute;
-    animation: scatterAndLoop 8s ease-in-out infinite;
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 150px); /* 4 columns */
+    grid-gap: 10px;
 }
 
-/* Continuously scattered from random sides */
-@keyframes scatterAndLoop {
-    0% {
-        transform: translate(var(--random-x), var(--random-y)) scale(1);
-        opacity: 0;
-    }
-    25% {
-        opacity: 1;
+.card {
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.card img {
+    max-width: 100%;
+    max-height: 100%;
+    display: none; /* Initially hide images */
+}
+
+.card.selected img,
+.card.correct img {
+    display: block; /* Show image when selected or correct */
+}
+
+.card:hover {
+    background-color: #f5f5f5;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.card.selected {
+    background-color: #add8e6;
+    animation: bounce 0.5s ease;
+}
+
+.card.correct {
+    background-color: #90ee90;
+    animation: scale-rotate 0.5s ease forwards;
+}
+
+.card.wrong {
+    background-color: #ffcccb;
+    animation: shake 0.3s ease;
+}
+
+#congrats-message {
+    font-size: 28px;
+    color: #4caf50;
+    margin-top: 20px;
+    animation: bounce 1s infinite;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Animations */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
     }
     50% {
-        transform: translate(0, 0) scale(1.2); /* Zoom in slightly at the center */
+        transform: translateY(-10px);
     }
-    75% {
+}
+
+@keyframes scale-rotate {
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(15deg);
+    }
+    100% {
+        transform: scale(1.1) rotate(0deg);
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+/* Firework effect container */
+.firework {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+    pointer-events: none; /* Prevent interference with clicking */
+}
+
+.firework .circle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 50%;
+    opacity: 0;
+    animation: explode 1.5s ease-out forwards;
+}
+
+/* Randomly assign different sizes and colors to each firework burst */
+.firework .circle:nth-child(1) { background-color: red; animation-delay: 0s; }
+.firework .circle:nth-child(2) { background-color: yellow; animation-delay: 0.2s; }
+.firework .circle:nth-child(3) { background-color: blue; animation-delay: 0.4s; }
+.firework .circle:nth-child(4) { background-color: green; animation-delay: 0.6s; }
+.firework .circle:nth-child(5) { background-color: purple; animation-delay: 0.8s; }
+
+/* Animation for the firework explosion */
+@keyframes explode {
+    0% {/* Improved styles for a balanced look */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            margin-top: 20px;
+            color: #333;
+            font-size: 36px;
+        }
+        
+        .game-container {
+            display: flex;
+            justify-content: center;
+            margin: 50px auto;
+        }
+        
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 150px); /* 4 columns */
+            grid-gap: 10px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+            position: relative; /* Ensure correct positioning for images */
+        }
+        
+        .card img {
+            max-width: 100%;
+            max-height: 100%;
+            display: none; /* Initially hide images */
+        }
+        
+        .card.selected img,
+        .card.correct img {
+            display: block; /* Show image when selected or correct */
+        }
+        
+        .card:hover {
+            background-color: #f5f5f5;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card.selected {
+            background-color: #add8e6;
+            animation: bounce 0.5s ease;
+        }
+        
+        .card.correct {
+            background-color: #90ee90;
+            animation: scale-rotate 0.5s ease forwards;
+        }
+        
+        .card.wrong {
+            background-color: #ffcccb;
+            animation: shake 0.3s ease;
+        }
+        
+        #congrats-message {
+            font-size: 28px;
+            color: #4caf50;
+            margin-top: 20px;
+            animation: bounce 1s infinite;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        /* Animations */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes scale-rotate {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            50% {
+                transform: scale(1.2) rotate(15deg);
+            }
+            100% {
+                transform: scale(1.1) rotate(0deg);
+            }
+        }
+        
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+        
+        /* Firework effect container */
+        .firework {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            top: 50%;
+            left: 50%;
+            margin: -50px 0 0 -50px;
+            pointer-events: none; /* Prevent interference with clicking */
+        }
+        
+        .firework .circle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: transparent;
+            border-radius: 50%;
+            opacity: 0;
+            animation: explode 1.5s ease-out forwards;
+        }
+        
+        /* Randomly assign different sizes and colors to each firework burst */
+        .firework .circle:nth-child(1) { background-color: red; animation-delay: 0s; }
+        .firework .circle:nth-child(2) { background-color: yellow; animation-delay: 0.2s; }
+        .firework .circle:nth-child(3) { background-color: blue; animation-delay: 0.4s; }
+        .firework .circle:nth-child(4) { background-color: green; animation-delay: 0.6s; }
+        .firework .circle:nth-child(5) { background-color: purple; animation-delay: 0.8s; }
+        
+        /* Animation for the firework explosion */
+        @keyframes explode {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(15);
+                opacity: 0;
+            }
+        }
+        
+        /* Adjust container to hold multiple fireworks */
+        #fireworks-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+        
+        transform: scale(0);
         opacity: 1;
     }
     100% {
-        transform: translate(var(--next-random-x), var(--next-random-y)) scale(1);
+        transform: scale(15);
         opacity: 0;
     }
+}
+
+/* Adjust container to hold multiple fireworks */
+#fireworks-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10;
 }

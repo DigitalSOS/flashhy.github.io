@@ -29,14 +29,16 @@ function navigateTo(page) {
         translation: {
           "welcome": "Developed by Fouad Arayssi",
           "version": "Flashhy Version 1.3",
-          "home": "Return Home Pages",
+          "home": "Return to Home",
+          "beta": "Beta"
         }
       },
       es: {
         translation: {
           "welcome": "Desarrollado por Fouad Arayssi",
           "version": "Flashhy Versión 1.3",
-          "home": "Regresa Casa Pagina",
+          "home": "Regresa a Casa",
+          "beta": "Beta"
 
         }
       }
@@ -59,6 +61,7 @@ function navigateTo(page) {
   function updateContent() {
     document.getElementById('welcome-text').innerText = i18next.t('welcome');
     document.getElementById('version-text').innerText = i18next.t('version');
+    document.getElementById('beta-btn').innerText = i18next.t('beta');
     document.getElementById('return-home-btn').innerText = i18next.t('home');
 
   }

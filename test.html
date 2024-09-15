@@ -1,37 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Congratulations</title>
-    <link rel="stylesheet" href="test.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matching Game</title>
+  <link rel="stylesheet" href="test.css">
 </head>
-
 <body>
-    <!-- Home Button -->
-    <div class="home-button" id="home-button">
-        <img src="home1.png" alt="Home Icon">
-    </div>
-</body>
-<body
-    <div class="fruits">
-        <img src="red-apple.png" class="fruit" alt="Apple">
-        <img src="banana.png" class="fruit" alt="Banana">
-        <img src="cherries.jpg" class="fruit" alt="Cherry">
-        <img src="pear.jpg" class="fruit" alt="Pear">
-        <img src="kiwi.jpg" class="fruit" alt="Kiwi">
-        <img src="orange.jpg" class="fruit" alt="Orange">
-        <img src="mango.jpg" class="fruit" alt="Mango">
-        <img src="corn.jpg" class="fruit" alt="Corn">
-        <img src="pineapple.jpg" class="fruit" alt="Pineapple">
-        <img src="peach.jpg" class="fruit" alt="Peach">
-        <img src="blueberry.jpg" class="fruit" alt="Blueberry">
-        <img src="avocado.png" class="fruit" alt="Avocado">
-        <img src="carrots.jpg" class="fruit" alt="Carrots">
-        <img src="strawberry.jpg" class="fruit" alt="Strawberry">
-    </div>
-    
-    <script src="home_button.js"></script>
+  <!-- Firework container for win animation -->
+  <div id="fireworks-container" class="hidden"></div>
 
+  <h1>Matching Game</h1>
+
+  <div class="game-container">
+    <!-- Game grid -->
+    <div class="game-grid">
+      <!-- Each card has a data-match attribute for matching -->
+      <div class="card" data-match="1"><img src="red-apple.png" alt="Card 1"></div>
+      <div class="card" data-match="2"><img src="grape.jpg" alt="Card 2"></div>
+      <div class="card" data-match="3"><img src="plum.jpg" alt="Card 3"></div>
+      <div class="card" data-match="4"><img src="orange.jpg" alt="Card 4"></div>
+      <div class="card" data-match="1"><img src="corn.jpg" alt="Card 1"></div>
+      <div class="card" data-match="2"><img src="cherries.jpg" alt="Card 2"></div>
+      <div class="card" data-match="3"><img src="image3.jpg" alt="Card 3"></div>
+      <div class="card" data-match="4"><img src="orange.jpg" alt="Card 4"></div>
+      <div class="card" data-match="5"><img src="image5.jpg" alt="Card 5"></div>
+      <div class="card" data-match="6"><img src="image6.jpg" alt="Card 6"></div>
+      <div class="card" data-match="7"><img src="image7.jpg" alt="Card 7"></div>
+      <div class="card" data-match="8"><img src="image8.jpg" alt="Card 8"></div>
+      <div class="card" data-match="5"><img src="image5.jpg" alt="Card 5"></div>
+      <div class="card" data-match="6"><img src="image6.jpg" alt="Card 6"></div>
+      <div class="card" data-match="7"><img src="image7.jpg" alt="Card 7"></div>
+      <div class="card" data-match="8"><img src="image8.jpg" alt="Card 8"></div>
+    </div>
+  </div>
+
+  <!-- Hidden congratulatory message -->
+  <div id="congrats-message" class="hidden">
+    🎉 Congratulations! You've matched all items! 🎉
+  </div>
+
+  <!-- Sound effects -->
+  <audio id="click-sound" src="sounds/select.wav" preload="auto"></audio>
+  <audio id="correct-sound" src="sounds/correct.mp3" preload="auto"></audio>
+  <audio id="wrong-sound" src="sounds/wrong.mp3" preload="auto"></audio>
+
+  <script src="test.js"></script>
 </body>
 </html>

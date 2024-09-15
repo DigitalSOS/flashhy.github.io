@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matching Game</title>
+  <link rel="stylesheet" href="test1.css">
+</head>
+<body>
+    <!-- Firework container for win animation -->
+<div id="fireworks-container" class="hidden"></div>
+
+  <h1>Matching Game</h1>
+
+  <div class="game-container">
+    <!-- Left side items -->
+    <div class="left-column">
+      <div class="item" data-match="1">🍎</div>
+      <div class="item" data-match="2">🍌</div>
+      <div class="item" data-match="3">🍇</div>
+      
+    </div>
+
+    <!-- Right side items (shuffled order) -->
+    <div class="right-column">
+      <div class="item" data-match="3">🍇</div>
+      <div class="item" data-match="1">🍎</div>
+      <div class="item" data-match="2">🍌</div>
+    </div>
+  </div>
+
+  <!-- Hidden congratulatory message -->
+  <div id="congrats-message" class="hidden">
+    🎉 Congratulations! You've matched all items! 🎉
+  </div>
+
+  <!-- Sound effects -->
+  <audio id="click-sound" src="select.wav" preload="auto"></audio>
+  <audio id="correct-sound" src="correct.mp3" preload="auto"></audio>
+  <audio id="wrong-sound" src="wrong.mp3" preload="auto"></audio>
+
+  <script src="test1.js"></script>
+</body>
+</html>

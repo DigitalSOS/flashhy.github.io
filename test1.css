@@ -1,0 +1,161 @@
+/* Improved styles for a balanced look */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1 {
+    margin-top: 20px;
+    color: #333;
+    font-size: 36px;
+  }
+  
+  .game-container {
+    display: flex;
+    justify-content: center;
+    gap: 100px; /* More spacing between the columns */
+    margin: 50px auto;
+  }
+  
+  .left-column, .right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .item {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    cursor: pointer;
+    font-size: 50px;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .item:hover {
+    background-color: #f5f5f5;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .item.selected {
+    background-color: #add8e6;
+    animation: bounce 0.5s ease;
+  }
+  
+  .item.correct {
+    background-color: #90ee90;
+    animation: scale-rotate 0.5s ease forwards;
+  }
+  
+  .item.wrong {
+    background-color: #ffcccb;
+    animation: shake 0.3s ease;
+  }
+  
+  #congrats-message {
+    font-size: 28px;
+    color: #4caf50;
+    margin-top: 20px;
+    animation: bounce 1s infinite;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  /* Animations */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes scale-rotate {
+    0% {
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      transform: scale(1.2) rotate(15deg);
+    }
+    100% {
+      transform: scale(1.1) rotate(0deg);
+    }
+  }
+  
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+  }
+  
+
+  /* Firework effect container */
+.firework {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 50%;
+    left: 50%;
+    margin: -50px 0 0 -50px;
+    pointer-events: none; /* Prevent interference with clicking */
+  }
+  
+  .firework .circle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 50%;
+    opacity: 0;
+    animation: explode 1.5s ease-out forwards;
+  }
+  
+  /* Randomly assign different sizes and colors to each firework burst */
+  .firework .circle:nth-child(1) { background-color: red; animation-delay: 0s; }
+  .firework .circle:nth-child(2) { background-color: yellow; animation-delay: 0.2s; }
+  .firework .circle:nth-child(3) { background-color: blue; animation-delay: 0.4s; }
+  .firework .circle:nth-child(4) { background-color: green; animation-delay: 0.6s; }
+  .firework .circle:nth-child(5) { background-color: purple; animation-delay: 0.8s; }
+  
+  /* Animation for the firework explosion */
+  @keyframes explode {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(20);
+      opacity: 0;
+    }
+  }
+  
+  /* Adjust container to hold multiple fireworks */
+  #fireworks-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  #congrats-message {
+    font-size: 28px;
+    color: #4caf50;
+    margin-top: 20px;
+    animation: bounce 1s infinite;
+  }
+  
