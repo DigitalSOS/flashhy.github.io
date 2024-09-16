@@ -1,17 +1,57 @@
-// JavaScript for the matching game with fireworks and sounds
-const items = document.querySelectorAll('.game-container .item');  // Select all items
-let selectedItem = null;  // Holds the currently selected item
+const items = document.querySelectorAll('.game-container .item');
+let selectedItem = null;
 let matchedCount = 0;
-let gameWon = false;  // This flag will prevent further playing once the game is won
+let gameWon = false;
 
-// Load sound files
 const clickSound = new Audio('sounds/select.wav');
 const correctSound = new Audio('sounds/correct.mp3');
 const wrongSound = new Audio('sounds/wrong.mp3');
+const winSound = new Audio('sounds/win.mp3');  // Added win sound
+
+// Function to shuffle an array (Fisher-Yates Shuffle)
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+// Function to randomize card positions
+function randomizeCards() {
+    const gameContainer = document.querySelector('.game-container');
+    const columns = gameContainer.querySelectorAll('.column');
+
+    // Create an array to hold all card items
+    let items = [];
+    columns.forEach(column => {
+        items = items.concat(Array.from(column.querySelectorAll('.item')));
+    });
+
+    // Shuffle the card items
+    items = shuffleArray(items);
+
+    // Remove all items from the columns
+    columns.forEach(column => {
+        while (column.firstChild) {
+            column.removeChild(column.firstChild);
+        }
+    });
+
+    // Re-distribute the shuffled items into columns
+    items.forEach((item, index) => {
+        columns[index % columns.length].appendChild(item);
+    });
+}
+
+// Call the randomizeCards function when the page loads
+window.addEventListener('load', () => {
+    randomizeCards();
+});
 
 // Function to handle item click
 function handleItemClick(item) {
-    if (gameWon || item.classList.contains('correct') || item === selectedItem) return;  // Prevent further clicks if the game is won or item is already matched
+    if (gameWon || item.classList.contains('correct') || item === selectedItem) return;  // Prevent further clicks if game is won or item already matched
 
     // Play click sound
     clickSound.play();
@@ -30,84 +70,48 @@ function handleItemClick(item) {
             // Correct match
             item.classList.add('correct');
             selectedItem.classList.add('correct');
-
-            // Play correct sound
             correctSound.play();
-
-            matchedCount += 2;  // Increment by 2 for each matched pair
+            matchedCount += 2;
             checkGameCompletion();
-            // Reset selectedItem to null after successful match
-            selectedItem = null;
+            selectedItem = null;  // Reset selected item after match
         } else {
             // Wrong match
             item.classList.add('wrong');
             selectedItem.classList.add('wrong');
-
-            // Play wrong sound
             wrongSound.play();
 
             setTimeout(() => {
-                // Remove wrong class and selected class from both items
-                item.classList.remove('wrong');
-                selectedItem.classList.remove('wrong');
-                selectedItem.classList.remove('selected');
-                item.classList.remove('selected');  // Ensure the current item is also deselected
-                selectedItem = null;  // Reset the selection
+                // Remove wrong and selected classes after a brief delay
+                item.classList.remove('wrong', 'selected');
+                selectedItem.classList.remove('wrong', 'selected');
+                selectedItem = null;
             }, 500);
         }
-
-        // Deselect the previously selected item after a brief delay to show the wrong animation
     }
 }
 
-// Add event listeners for all items
 items.forEach(item => {
     item.addEventListener('click', () => handleItemClick(item));
 });
 
-// Check if all items are matched and trigger fireworks
 function checkGameCompletion() {
     if (matchedCount === items.length) {
         const congratsMessage = document.getElementById('congrats-message');
-        congratsMessage.classList.remove('hidden');
-
-        triggerFireworks();
+        congratsMessage.style.display = 'block'; // Show the congrats message
+        winSound.play(); // Play win sound
+        triggerFireworks(); // Trigger the fireworks
+        disableGameButtons(); // Disable further clicks
         gameWon = true;
     }
 }
 
-let fireworksInterval = null;
-
-// Function to create and trigger firework animations continuously
-function triggerFireworks() {
-    const fireworksContainer = document.getElementById('fireworks-container');
-    fireworksContainer.classList.remove('hidden');
-
-    fireworksInterval = setInterval(() => {
-        createFirework();
-    }, 500);
+// Disable further clicks on all game items
+function disableGameButtons() {
+    items.forEach(item => {
+        item.style.pointerEvents = 'none'; // Disable item clicks
+    });
 }
 
-// Function to create a single firework burst
-function createFirework() {
-    const fireworksContainer = document.getElementById('fireworks-container');
-    const firework = document.createElement('div');
-    firework.classList.add('firework');
-
-    for (let i = 0; i < 5; i++) {
-        const circle = document.createElement('div');
-        circle.classList.add('circle');
-        firework.appendChild(circle);
-    }
-
-    // Position firework randomly on the screen
-    firework.style.top = Math.random() * 100 + '%';
-    firework.style.left = Math.random() * 100 + '%';
-
-    fireworksContainer.appendChild(firework);
-
-    // Remove each firework after its animation is complete
-    setTimeout(() => {
-        firework.remove();
-    }, 1500);
+function goHome() {
+    window.location.href = 'index.html';  // Replace 'index.html' with your actual home page URL
 }

@@ -1,22 +1,63 @@
+/* Your existing styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff;
+    background-image: linear-gradient(to bottom left, rgb(246, 39, 174), rgb(1, 242, 89));
+    color: #333;
     text-align: center;
     margin: 0;
     padding: 0;
 }
-  
+
 h1 {
     margin-top: 20px;
-    color: #333;
-    font-size: 36px;
+    font-size: 2rem; /* Adjusted for responsiveness */
 }
 
 .game-container {
     display: flex;
-    flex-wrap: wrap;  /* Allow columns to wrap */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px; /* Space between columns */
+    gap: 10px; /* Reduced gap for smaller screens */
+    margin: 20px auto;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Reduced gap for smaller screens */
+}
+
+.item {
+    width: 80px; /* Adjusted size for responsiveness */
+    height: 80px; /* Adjusted size for responsiveness */
+}
+
+@media (max-width: 768px) {
+    .item {
+        width: 60px; /* Smaller size for tablets and phones */
+        height: 60px; /* Smaller size for tablets and phones */
+    }
+    h1 {
+        font-size: 1.5rem; /* Smaller font size for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .item {
+        width: 50px; /* Smaller size for phones */
+        height: 50px; /* Smaller size for phones */
+    }
+    h1 {
+        font-size: 1.2rem; /* Even smaller font size for very small screens */
+    }
+}
+
+
+.game-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
     margin: 50px auto;
 }
 
@@ -26,6 +67,7 @@ h1 {
     gap: 20px;
 }
 
+/* Card Styles */
 .item {
     width: 100px;
     height: 100px;
@@ -45,38 +87,31 @@ h1 {
     pointer-events: none; /* Prevent image from interfering with clicks */
 }
 
+/* Hover Animation */
 .item:hover {
     background-color: #f5f5f5;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Selected Animation */
 .item.selected {
     background-color: #add8e6;
     animation: bounce 0.5s ease;
 }
 
+/* Correct Match Animation */
 .item.correct {
     background-color: #90ee90;
     animation: scale-rotate 0.5s ease forwards;
 }
 
+/* Wrong Match Animation */
 .item.wrong {
     background-color: #ffcccb;
     animation: shake 0.3s ease;
 }
 
-#congrats-message {
-    font-size: 28px;
-    color: #4caf50;
-    margin-top: 20px;
-    animation: bounce 1s infinite;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Animations */
+/* Keyframe Animations */
 @keyframes bounce {
     0%, 100% {
         transform: translateY(0);
@@ -106,26 +141,85 @@ h1 {
     100% { transform: translateX(0); }
 }
 
-/* Fireworks */
-.firework {
-    position: absolute;
-    width: 100px;
-    height: 100px;
+#congrats-message {
+    position: fixed;
     top: 50%;
     left: 50%;
-    margin: -50px 0 0 -50px;
-    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 36px;
+    color: #fff;
+    font-weight: bold;
+    background-color: #ff4500;
+    padding: 20px 40px;
+    border: 5px solid #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 15px 5px #ff4500, 0 0 30px 15px #ffd700, 0 0 50px 30px #ff4500;
+    animation: glowPulse 1.5s infinite ease-in-out, bounceIn 1s ease forwards;
+    display: none;
+    z-index: 1000;
 }
 
-.firework .circle {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: transparent;
-    border-radius: 50%;
-    opacity: 0;
-    animation: explode 1.5s ease-out forwards;
+/* Keyframes for glowing pulse effect */
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 15px 5px #ff4500, 0 0 30px 15px #ffd700, 0 0 50px 30px #ff4500;
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0 0 25px 10px #ff4500, 0 0 40px 20px #ffd700, 0 0 70px 40px #ff4500;
+        transform: scale(1.1);
+    }
+    100% {
+        box-shadow: 0 0 15px 5px #ff4500, 0 0 30px 15px #ffd700, 0 0 50px 30px #ff4500;
+        transform: scale(1);
+    }
 }
 
-.firework .circle:nth-child(1) { background-color: red; animation-delay: 0s; }
-.firework .circle:nth-child(2) { background-color: yellow; animation-delay: 0.2s; }
+/* Keeping bounceIn animation from the previous version */
+@keyframes bounceIn {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+    60% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Keeping the pulse animation for continuous subtle scaling */
+@keyframes pulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+#home-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #ff4500;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ff4500, 0 0 20px #ffd700;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+#home-button:hover {
+    background-color: #ffd700;
+    box-shadow: 0 0 20px #ffd700, 0 0 40px #ff4500;
+    transform: scale(1.1);
+}
+
+#home-button:active {
+    transform: scale(1);
+}

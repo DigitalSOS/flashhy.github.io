@@ -29,7 +29,7 @@ function navigateTo(page) {
         translation: {
           "welcome": "Developed by Fouad Arayssi",
           "version": "Flashhy Version 1.3",
-          "home": "Return to Home",
+          "home": "Go to Home",
           "beta": "Beta"
         }
       },
@@ -37,7 +37,7 @@ function navigateTo(page) {
         translation: {
           "welcome": "Desarrollado por Fouad Arayssi",
           "version": "Flashhy Versión 1.3",
-          "home": "Regresa a Casa",
+          "home": "Ir a casa",
           "beta": "Beta"
 
         }
