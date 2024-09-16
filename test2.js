@@ -97,13 +97,15 @@ items.forEach(item => {
 function checkGameCompletion() {
     if (matchedCount === items.length) {
         const congratsMessage = document.getElementById('congrats-message');
-        congratsMessage.style.display = 'block'; // Show the congrats message
+        congratsMessage.style.display = 'block'; // Make it visible
+        congratsMessage.style.transform = 'translate(-50%, -50%) scale(1)'; // Scale it up with animation
         winSound.play(); // Play win sound
-        triggerFireworks(); // Trigger the fireworks
-        disableGameButtons(); // Disable further clicks
         gameWon = true;
+        disableGameButtons(); // Disable further clicks
     }
 }
+
+
 
 // Disable further clicks on all game items
 function disableGameButtons() {

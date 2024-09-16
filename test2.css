@@ -10,47 +10,96 @@ body {
 
 h1 {
     margin-top: 20px;
-    font-size: 2rem; /* Adjusted for responsiveness */
+    font-size: 2rem;
 }
 
 .game-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 100px); /* Default 4 columns for larger screens */
+    grid-gap: 20px;
     justify-content: center;
-    gap: 10px; /* Reduced gap for smaller screens */
     margin: 20px auto;
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
-    gap: 10px; /* Reduced gap for smaller screens */
+    display: contents; /* Items are now handled by grid directly */
 }
 
 .item {
-    width: 80px; /* Adjusted size for responsiveness */
-    height: 80px; /* Adjusted size for responsiveness */
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item img {
+    max-width: 90%;
+    max-height: 90%;
+    pointer-events: none;
+}
+
+/* Responsive Layout */
+@media (max-width: 1024px) {
+    .game-container {
+        grid-template-columns: repeat(3, 100px); /* 3 columns for tablets in landscape mode */
+    }
 }
 
 @media (max-width: 768px) {
-    .item {
-        width: 60px; /* Smaller size for tablets and phones */
-        height: 60px; /* Smaller size for tablets and phones */
+    .game-container {
+        grid-template-columns: repeat(2, 80px); /* 2 columns for tablets in portrait mode */
+        grid-gap: 15px;
     }
+
+    .item {
+        width: 80px;
+        height: 80px;
+    }
+
     h1 {
-        font-size: 1.5rem; /* Smaller font size for smaller screens */
+        font-size: 1.8rem;
     }
 }
 
 @media (max-width: 480px) {
-    .item {
-        width: 50px; /* Smaller size for phones */
-        height: 50px; /* Smaller size for phones */
+    .game-container {
+        grid-template-columns: repeat(2, 60px); /* 2 columns for phones */
+        grid-gap: 10px;
     }
+
+    .item {
+        width: 60px;
+        height: 60px;
+    }
+
     h1 {
-        font-size: 1.2rem; /* Even smaller font size for very small screens */
+        font-size: 1.5rem;
     }
 }
+
+@media (max-width: 320px) {
+    .game-container {
+        grid-template-columns: repeat(2, 50px); /* Smaller size for very small phones */
+    }
+
+    .item {
+        width: 50px;
+        height: 50px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+}
+
+/* Other styles for animations, congrats message, etc. remain unchanged */
+
 
 
 .game-container {
@@ -154,52 +203,40 @@ h1 {
     border: 5px solid #fff;
     border-radius: 15px;
     box-shadow: 0 0 15px 5px #ff4500, 0 0 30px 15px #ffd700, 0 0 50px 30px #ff4500;
-    animation: glowPulse 1.5s infinite ease-in-out, bounceIn 1s ease forwards;
     display: none;
     z-index: 1000;
+    animation: bounceInGlow 1.5s ease forwards, glowPulse 2s infinite ease-in-out;
 }
 
-/* Keyframes for glowing pulse effect */
-@keyframes glowPulse {
+/* Bounce-in animation */
+@keyframes bounceInGlow {
     0% {
-        box-shadow: 0 0 15px 5px #ff4500, 0 0 30px 15px #ffd700, 0 0 50px 30px #ff4500;
-        transform: scale(1);
-    }
-    50% {
-        box-shadow: 0 0 25px 10px #ff4500, 0 0 40px 20px #ffd700, 0 0 70px 40px #ff4500;
-        transform: scale(1.1);
-    }
-    100% {
-        box-shadow: 0 0 15px 5px #ff4500, 0 0 30px 15px #ffd700, 0 0 50px 30px #ff4500;
-        transform: scale(1);
-    }
-}
-
-/* Keeping bounceIn animation from the previous version */
-@keyframes bounceIn {
-    0% {
-        transform: translate(-50%, -50%) scale(0);
+        transform: translate(-50%, -50%) scale(0.3) rotate(-10deg);
         opacity: 0;
     }
-    60% {
-        transform: translate(-50%, -50%) scale(1.2);
+    50% {
+        transform: translate(-50%, -50%) scale(1.1) rotate(10deg);
         opacity: 1;
     }
     100% {
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
     }
 }
 
-/* Keeping the pulse animation for continuous subtle scaling */
-@keyframes pulse {
-    0%, 100% {
-        transform: translate(-50%, -50%) scale(1);
+/* Glowing pulse effect */
+@keyframes glowPulse {
+    0% {
+        box-shadow: 0 0 15px 5px #ff4500, 0 0 30px 15px #ffd700, 0 0 50px 30px #ff4500;
     }
     50% {
-        transform: translate(-50%, -50%) scale(1.05);
+        box-shadow: 0 0 25px 10px #ff4500, 0 0 40px 20px #ffd700, 0 0 70px 40px #ff4500;
+    }
+    100% {
+        box-shadow: 0 0 15px 5px #ff4500, 0 0 30px 15px #ffd700, 0 0 50px 30px #ff4500;
     }
 }
 
+/* Home button animation on hover */
 #home-button {
     margin-top: 20px;
     padding: 10px 20px;
@@ -218,8 +255,4 @@ h1 {
     background-color: #ffd700;
     box-shadow: 0 0 20px #ffd700, 0 0 40px #ff4500;
     transform: scale(1.1);
-}
-
-#home-button:active {
-    transform: scale(1);
 }
