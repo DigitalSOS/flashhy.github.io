@@ -145,7 +145,7 @@ h1 {
 .item.correct {
     transform: rotateY(180deg); /* Flip effect */
     background-color: var(--random-color); /* Solid color from JS */
-    animation: correctFlip 0.6s ease;
+    animation: correctFlip 0.6s ease, fadeOut 0.8s ease 0.6s forwards; /* Flip, then fade-out */
 }
 
 /* Hover Animation */
@@ -208,6 +208,31 @@ h1 {
 /* Hidden image after flip */
 .item.correct img {
     display: none;
+}
+
+/* Fade-out animation */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8); /* Slightly shrink the card */
+    }
+}
+
+/* Correct match flip animation */
+@keyframes correctFlip {
+    0% {
+        transform: rotateY(0deg);
+    }
+    50% {
+        transform: rotateY(90deg);
+    }
+    100% {
+        transform: rotateY(180deg);
+    }
 }
 
 
