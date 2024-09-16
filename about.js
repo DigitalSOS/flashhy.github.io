@@ -27,16 +27,16 @@ function navigateTo(page) {
     resources: {
       en: {
         translation: {
-          "welcome": "Developed by Fouad Arayssi",
-          "version": "Flashhy Version 1.3",
+          "welcome": "Developed by Digital SOS",
+          "version": "Flashhy Version 1.4",
           "home": "Go to Home",
           "beta": "Beta"
         }
       },
       es: {
         translation: {
-          "welcome": "Desarrollado por Fouad Arayssi",
-          "version": "Flashhy Versión 1.3",
+          "welcome": "Desarrollado por Digital SOS",
+          "version": "Flashhy Versión 1.4",
           "home": "Ir a casa",
           "beta": "Beta"
 

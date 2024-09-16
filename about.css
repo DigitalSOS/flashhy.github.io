@@ -17,7 +17,15 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(250deg, rgb(255, 70, 70), rgb(255, 180, 40), rgb(255, 255, 70), rgb(100, 255, 100), rgb(100, 100, 255), rgb(180, 75, 255), rgb(255, 0, 255));
+    background: linear-gradient(250deg, 
+        rgba(255, 183, 197, 1), /* Light Pink */
+        rgba(255, 223, 186, 1), /* Light Peach */
+        rgba(255, 255, 186, 1), /* Light Yellow */
+        rgba(186, 255, 201, 1), /* Light Green */
+        rgba(186, 255, 255, 1), /* Light Blue */
+        rgba(197, 186, 255, 1), /* Light Purple */
+        rgba(255, 186, 255, 1)  /* Light Magenta */
+    );
     background-size: 400% 400%;
     animation: gradientAnimation 10s ease infinite;
     z-index: -1;
@@ -28,7 +36,6 @@ body {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-
 
 .container {
     text-align: center;

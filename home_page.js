@@ -28,6 +28,7 @@ i18next.init({
     en: {
       translation: {
         "welcome": "Welcome to Flashhy",
+        "shapes": "Shapes",
         "fruits": "Fruits & Veggies",
         "about": "About",
 
@@ -36,7 +37,8 @@ i18next.init({
     es: {
       translation: {
         "welcome": "Bienvenido a Flashhy",
-        "fruits": "Frutas y Verduras",
+        "shapes": "Formas",
+        "fruits": "Fruits & Veggies",
         "about": "Informacion",
       }
     }
@@ -58,6 +60,7 @@ function changeLanguage(lng) {
 // Function to update the text content dynamically
 function updateContent() {
   document.getElementById('welcome-text').innerText = i18next.t('welcome');
+  document.getElementById('shapes-btn').innerText = i18next.t('shapes');
   document.getElementById('fruits-btn').innerText = i18next.t('fruits');
   document.getElementById('about-btn').innerText = i18next.t('about');
 

@@ -1,8 +1,8 @@
 /* Your existing styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-image: linear-gradient(to bottom left, rgb(246, 39, 174), rgb(1, 242, 89));
-    color: #333;
+    background-image: linear-gradient(to bottom left, #2b0080, #41003d);
+    color: #fffdfd;
     text-align: center;
     margin: 0;
     padding: 0;
@@ -144,19 +144,19 @@ h1 {
 
 /* Selected Animation */
 .item.selected {
-    background-color: #add8e6;
+    background-color: #7adeff;
     animation: bounce 0.5s ease;
 }
 
 /* Correct Match Animation */
 .item.correct {
-    background-color: #90ee90;
+    background-color: #6aff6a;
     animation: scale-rotate 0.5s ease forwards;
 }
 
 /* Wrong Match Animation */
 .item.wrong {
-    background-color: #ffcccb;
+    background-color: #ff9998;
     animation: shake 0.3s ease;
 }
 
@@ -198,14 +198,14 @@ h1 {
     font-size: 36px;
     color: #fff;
     font-weight: bold;
-    background-color: #ff4500;
+    background-color: #ff2f00;
     padding: 20px 40px;
     border: 5px solid #fff;
     border-radius: 15px;
     box-shadow: 0 0 15px 5px #ff4500, 0 0 30px 15px #ffd700, 0 0 50px 30px #ff4500;
     display: none;
     z-index: 1000;
-    animation: bounceInGlow 1.5s ease forwards, glowPulse 2s infinite ease-in-out;
+    animation: bounceInGlow 1.5s ease forwards, glowPulse 1s infinite ease-in-out;
 }
 
 /* Bounce-in animation */
@@ -243,7 +243,7 @@ h1 {
     font-size: 20px;
     font-weight: bold;
     color: #fff;
-    background-color: #ff4500;
+    background-color: #ffd000;
     border: none;
     border-radius: 10px;
     box-shadow: 0 0 10px #ff4500, 0 0 20px #ffd700;
@@ -252,7 +252,7 @@ h1 {
 }
 
 #home-button:hover {
-    background-color: #ffd700;
-    box-shadow: 0 0 20px #ffd700, 0 0 40px #ff4500;
+    background-color: #ff4500;
+    box-shadow: 0 0 20px #ffd000, 0 0 40px #ff4500;
     transform: scale(1.1);
 }

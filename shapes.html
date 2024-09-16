@@ -4,13 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matching Game</title>
-  <link rel="stylesheet" href="test2.css">
+  <link rel="stylesheet" href="shapes.css">
 </head>
 <body>
-  <!-- Firework container for win animation -->
-  <div id="fireworks-container" class="hidden"></div>
-
-  <h1>Matching Game</h1>
+  <h1>Match the Shapes</h1>
 
   <div class="game-container">
     <!-- Five columns with items -->
@@ -24,34 +21,14 @@
       <div class="item" data-match="3">
         <img src="square.jpg" alt="Square">
       </div>
-      <div class="item" data-match="1">
-        <img src="Octagon.jpg" alt="Octagon">
+      <div class="item" data-match="4">
+        <img src="oval.png" alt="Oval">
       </div>
-      <div class="item" data-match="2">
-        <img src="star.png" alt="star">
+      <div class="item" data-match="5">
+        <img src="star.png" alt="Star">
       </div>
-      <div class="item" data-match="3">
-        <img src="Pentagon.jpg" alt="pentagon">
-      </div>
-    </div>
-    <div class="column">
-      <div class="item" data-match="1">
-        <img src="triangle.jpg" alt="Triangle">
-      </div>
-      <div class="item" data-match="2">
-        <img src="circle.jpg" alt="Circle">
-      </div>
-      <div class="item" data-match="3">
-        <img src="square.jpg" alt="Square">
-      </div>
-      <div class="item" data-match="1">
-        <img src="Octagon.jpg" alt="Octagon">
-      </div>
-      <div class="item" data-match="2">
-        <img src="star.png" alt="star">
-      </div>
-      <div class="item" data-match="3">
-        <img src="Pentagon.jpg" alt="pentagon">
+      <div class="item" data-match="6">
+        <img src="pentagon.jpg" alt="Pentagon">
       </div>
     </div>
     <div class="column">
@@ -64,14 +41,14 @@
       <div class="item" data-match="3">
         <img src="square.jpg" alt="Square">
       </div>
-      <div class="item" data-match="1">
-        <img src="Octagon.jpg" alt="Octagon">
+      <div class="item" data-match="4">
+        <img src="oval.png" alt="Oval">
       </div>
-      <div class="item" data-match="2">
-        <img src="star.png" alt="star">
+      <div class="item" data-match="5">
+        <img src="star.png" alt="Star">
       </div>
-      <div class="item" data-match="3">
-        <img src="Pentagon.jpg" alt="pentagon">
+      <div class="item" data-match="6">
+        <img src="pentagon.jpg" alt="Pentagon">
       </div>
     </div>
     <div class="column">
@@ -84,14 +61,34 @@
       <div class="item" data-match="3">
         <img src="square.jpg" alt="Square">
       </div>
+      <div class="item" data-match="4">
+        <img src="oval.png" alt="Oval">
+      </div>
+      <div class="item" data-match="5">
+        <img src="star.png" alt="Star">
+      </div>
+      <div class="item" data-match="6">
+        <img src="pentagon.jpg" alt="Pentagon">
+      </div>
+    </div>
+    <div class="column">
       <div class="item" data-match="1">
-        <img src="Octagon.jpg" alt="Octagon">
+        <img src="triangle.jpg" alt="Triangle">
       </div>
       <div class="item" data-match="2">
-        <img src="star.png" alt="star">
+        <img src="circle.jpg" alt="Circle">
       </div>
       <div class="item" data-match="3">
-        <img src="Pentagon.jpg" alt="pentagon">
+        <img src="square.jpg" alt="Square">
+      </div>
+      <div class="item" data-match="4">
+        <img src="oval.png" alt="Oval">
+      </div>
+      <div class="item" data-match="5">
+        <img src="star.png" alt="Star">
+      </div>
+      <div class="item" data-match="6">
+        <img src="pentagon.jpg" alt="Pentagon">
       </div>
     </div>
     </div>
@@ -106,11 +103,12 @@
   
 
   <!-- Sound effects -->
-  <audio id="click-sound" src="sounds/select.wav" preload="auto"></audio>
-  <audio id="correct-sound" src="sounds/correct.mp3" preload="auto"></audio>
-  <audio id="wrong-sound" src="sounds/wrong.mp3" preload="auto"></audio>
-  <audio id="win-sound" src="sounds/win.mp3" preload="auto"></audio>
+  <audio id="click-sound" src="select.wav" preload="auto"></audio>
+  <audio id="correct-sound" src="correct.wav" preload="auto"></audio>
+  <audio id="wrong-sound" src="wrong.mp3" preload="auto"></audio>
+  <audio id="win-sound" src="win.wav" preload="auto"></audio>
+  
 
-  <script src="test2.js"></script>
+  <script src="shapes.js"></script>
 </body>
 </html>
