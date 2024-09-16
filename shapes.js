@@ -19,7 +19,7 @@ function handleItemClick(item) {
     // If no card is selected, select the current card
     if (!selectedItem) {
         selectedItem = item;
-        item.classList.add('selected');
+        item.classList.add('selected');  // This will trigger the "selected" animation
     } else {
         isCheckingMatch = true;  // Disable interaction during match check
         const selectedMatch = selectedItem.getAttribute('data-match');
@@ -61,6 +61,7 @@ function handleItemClick(item) {
         }
     }
 }
+
 
 // Attach event listeners
 function attachItemClickListeners() {
