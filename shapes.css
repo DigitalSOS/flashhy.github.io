@@ -25,24 +25,8 @@ h1 {
     display: contents; /* Items are now handled by grid directly */
 }
 
-.item {
-    width: 100px;
-    height: 100px;
-    background-color: #fff;
-    border: 2px solid #ddd;
-    cursor: pointer;
-    border-radius: 10px;
-    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
-.item img {
-    max-width: 90%;
-    max-height: 90%;
-    pointer-events: none;
-}
+
 
 /* Responsive Layout */
 @media (max-width: 1024px) {
@@ -135,49 +119,66 @@ h1 {
 }
 
 .item img {
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 95%;
+    max-height: 95%;
     pointer-events: none;
 }
 
-
-/* Correct match flip animation */
-.item.correct {
-    transform: rotateY(180deg); /* Flip effect */
-    background-color: var(--random-color); /* Solid color from JS */
-    animation: correctFlip 0.6s ease, fadeOut 0.8s ease 0.6s forwards; /* Flip, then fade-out */
-}
-
-/* Hover Animation */
-.item:hover {
-    background-color: #f5f5f5;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Animation for card selection */
+/* Cool glowing effect when item is selected */
 .item.selected {
-    transform: scale(1.05); /* Slight zoom in when selected */
-    animation: selectedBounce 0.5s ease;
+    animation: pulseGlow 1s infinite ease-in-out;
 }
 
-@keyframes selectedBounce {
+
+/* Correct Match: Glowing animation then disappear */
+.item.correct {
+    animation: correctGlow 0.3s ease, disappear 0.2s ease 0.4s forwards; /* Glow then disappear */
+}
+
+/* Incorrect Match: Glowing animation then shake */
+.item.wrong {
+    animation: wrongGlow 0.3s ease, shake 0.2s ease 0.4s; /* Glow first, then shake */
+}
+
+/* Glowing effect for correct match */
+@keyframes correctGlow {
     0% {
-        transform: scale(1);
+        box-shadow: 0 0 10px 5px #00ff00;
     }
     50% {
-        transform: scale(1.1);
+        box-shadow: 0 0 20px 10px #00ff00;
     }
     100% {
-        transform: scale(1.05);
+        box-shadow: 0 0 10px 5px #00ff00;
     }
 }
 
-/* Animation for incorrect match (shake effect) */
-.item.wrong {
-    background-color: #ff9998;
-    animation: shake 0.4s ease;
+/* Disappear after glowing for correct matches */
+@keyframes disappear {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8); /* Shrinks slightly as it disappears */
+    }
 }
 
+/* Glowing effect for incorrect match */
+@keyframes wrongGlow {
+    0% {
+        box-shadow: 0 0 10px 5px #ff0000;
+    }
+    50% {
+        box-shadow: 0 0 20px 10px #ff0000;
+    }
+    100% {
+        box-shadow: 0 0 10px 5px #ff0000;
+    }
+}
+
+/* Shake animation for incorrect matches */
 @keyframes shake {
     0% { transform: translateX(0); }
     25% { transform: translateX(-10px); }
@@ -186,56 +187,47 @@ h1 {
     100% { transform: translateX(0); }
 }
 
-/* Correct match flip animation */
-.item.correct {
-    transform: rotateY(180deg); /* Flip effect */
-    background-color: var(--random-color); /* Solid color from JS */
-    animation: correctFlip 0.6s ease;
-}
-
-@keyframes correctFlip {
+/* Pulsing glow effect for selected item */
+@keyframes pulseGlow {
     0% {
-        transform: rotateY(0deg);
+        box-shadow: 0 0 5px 5px #00ffff;
     }
     50% {
-        transform: rotateY(90deg);
+        box-shadow: 0 0 20px 10px #00ffff, 0 0 30px 15px #00ffff;
     }
     100% {
-        transform: rotateY(180deg);
+        box-shadow: 0 0 5px 5px #00ffff;
     }
 }
 
-/* Hidden image after flip */
-.item.correct img {
-    display: none;
+/* Enhanced incorrect match animation with glow and shake */
+.item.wrong {
+    animation: wrongGlowShake .5s ease-in-out;
 }
 
-/* Fade-out animation */
-@keyframes fadeOut {
+/* Glow and shake for incorrect match */
+@keyframes wrongGlowShake {
     0% {
-        opacity: 1;
-        transform: scale(1);
+        transform: translateX(0);
+        box-shadow: 0 0 5px 5px #ff0000;
     }
-    100% {
-        opacity: 0;
-        transform: scale(0.8); /* Slightly shrink the card */
-    }
-}
-
-/* Correct match flip animation */
-@keyframes correctFlip {
-    0% {
-        transform: rotateY(0deg);
+    25% {
+        transform: translateX(-10px);
+        box-shadow: 0 0 15px 10px #ff0000;
     }
     50% {
-        transform: rotateY(90deg);
+        transform: translateX(10px);
+        box-shadow: 0 0 25px 15px #ff0000, 0 0 35px 20px #ff0000;
+    }
+    75% {
+        transform: translateX(-10px);
+        box-shadow: 0 0 15px 10px #ff0000;
     }
     100% {
-        transform: rotateY(180deg);
+        transform: translateX(0);
+        box-shadow: 0 0 5px 5px #ff0000;
     }
 }
-
-
 
 #congrats-message {
     position: fixed;
