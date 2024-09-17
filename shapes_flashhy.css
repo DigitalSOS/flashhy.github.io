@@ -3,7 +3,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: linear-gradient(to bottom left, #2b0080, #41003d);
+    background-image: linear-gradient(to top left, #6200ff, #f3d1fd);
     margin: 0;
     font-family: 'Comic Sans MS', sans-serif; /* Fun, child-friendly font */
 }
@@ -81,7 +81,7 @@ body {
 
 /* Card Back */
 .card-back {
-    background-color: #FFD700; /* Bright yellow back for contrast */
+    background-image: linear-gradient(to left, #f3d1fd, #9d00ff);
     transform: rotateY(180deg);
     display: flex;
     flex-direction: column;
@@ -94,9 +94,12 @@ body {
 /* Fact Text */
 #fact {
     margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 50px;
     font-weight: bold;
     animation: fadeIn 1s ease-in-out;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Glowing text effect */
+    animation: glowText 2s infinite alternate; /* Continuous glowing animation */
+
 }
 
 /* Next Button */
@@ -104,7 +107,7 @@ body {
     padding: 12px 24px;
     font-size: 18px;
     font-weight: bold;
-    background-color: #32CD32; /* Bright green button */
+    background-color: #9396ff; /* Bright green button */
     color: white;
     border: none;
     border-radius: 8px; /* Rounded button edges */
@@ -115,40 +118,20 @@ body {
 
 /* Next Button Hover Effect */
 #next-button:hover {
-    background-color: #228B22; /* Darker green on hover */
-    box-shadow: 0 0 20px rgba(50, 205, 50, 0.8); /* Glowing effect on hover */
+    background-color: #0008ff7c; /* Darker green on hover */
+    box-shadow: 0 0 20px #0008ff7c; /* Glowing effect on hover */
     transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
-/* Description Box Style */
-.description {
-    margin-top: 20px;
-    font-size: 50px;
-    font-weight: bold;
-    color: #ff0000; /* Bright yellow text color */
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8); /* Glowing text effect */
-    animation: glowText 1.5s infinite alternate; /* Continuous glowing animation */
-}
 
-/* Glowing effect with rotation */
-@keyframes glowCardRotate {
-    0% {
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Starting glow effect */
-        transform: rotateY(0deg); /* No rotation */
-    }
-    100% {
-        box-shadow: 0 0 20px rgba(255, 215, 0, 1); /* Intensified glow effect */
-        transform: rotateY(180deg); /* Rotate with the card */
-    }
-}
 
 /* Continuous glowing effect for the button */
 @keyframes glowButton {
     0% {
-        box-shadow: 0 0 10px rgba(50, 205, 50, 0.5); /* Starting glow effect */
+        box-shadow: 0 0 5px #0008ff7c; /* Starting glow effect */
     }
     100% {
-        box-shadow: 0 0 20px rgba(50, 205, 50, 1); /* Intensified glow effect */
+        box-shadow: 0 0 10px rgb(255, 255, 255); /* Intensified glow effect */
     }
 }
 
@@ -158,16 +141,16 @@ body {
         opacity: 0;
     }
     to {
-        opacity: 1;
+        opacity: 3;
     }
 }
 
 /* Continuous glowing animation for text */
 @keyframes glowText {
     0% {
-        text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Starting glow effect */
+        text-shadow: 0 0 5px rgb(0, 0, 0); /* Starting glow effect */
     }
     100% {
-        text-shadow: 0 0 20px rgb(255, 255, 255); /* Intensified glow effect */
+        text-shadow: 0 0 10px rgb(255, 255, 255); /* Intensified glow effect */
     }
 }
