@@ -26,7 +26,23 @@ h1 {
 }
 
 
-
+/* Style for the Home Button */
+.home-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+}
+.home-button img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+.home-button img.clicked {
+    transform: rotate(360deg);
+}
 
 /* Responsive Layout */
 @media (max-width: 1024px) {
@@ -276,7 +292,7 @@ h1 {
 }
 
 /* Home button animation on hover */
-#home-button {
+#home-button-1 {
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 20px;
@@ -290,7 +306,7 @@ h1 {
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
-#home-button:hover {
+#home-button-1:hover {
     background-color: #ff4500;
     box-shadow: 0 0 20px #ffd000, 0 0 40px #ff4500;
     transform: scale(1.1);
