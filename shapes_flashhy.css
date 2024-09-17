@@ -1,0 +1,173 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to bottom left, #2b0080, #41003d);
+    margin: 0;
+    font-family: 'Comic Sans MS', sans-serif; /* Fun, child-friendly font */
+}
+
+/* Style for the Home Button */
+.home-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    cursor: pointer;
+    width: 100px;
+    height: 100px;
+}
+.home-button img {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s ease;
+}
+.home-button img.clicked {
+    transform: rotate(360deg);
+}
+
+/* Card Container */
+.card-container {
+    text-align: center; /* Center the card and description */
+}
+
+/* Card Style */
+.card {
+    width: 400px;
+    height: 400px;
+    perspective: 1000px;
+    cursor: pointer; /* Indicate that the card is clickable */
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+    position: relative;
+}
+
+/* Flip effect */
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Front and back face styles */
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 15px; /* Rounded corners for a soft look */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+/* Card Front */
+.card-front {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ff634700; /* Bright border color */
+}
+
+/* Card Image */
+.card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the card without distortion */
+    border-radius: 40px;
+}
+
+/* Card Back */
+.card-back {
+    background-color: #FFD700; /* Bright yellow back for contrast */
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333;
+}
+
+/* Fact Text */
+#fact {
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Next Button */
+#next-button {
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #32CD32; /* Bright green button */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Rounded button edges */
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+    animation: glowButton 1.5s infinite alternate; /* Continuous glowing animation */
+}
+
+/* Next Button Hover Effect */
+#next-button:hover {
+    background-color: #228B22; /* Darker green on hover */
+    box-shadow: 0 0 20px rgba(50, 205, 50, 0.8); /* Glowing effect on hover */
+    transform: scale(1.1); /* Slightly enlarge on hover */
+}
+
+/* Description Box Style */
+.description {
+    margin-top: 20px;
+    font-size: 50px;
+    font-weight: bold;
+    color: #ff0000; /* Bright yellow text color */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8); /* Glowing text effect */
+    animation: glowText 1.5s infinite alternate; /* Continuous glowing animation */
+}
+
+/* Glowing effect with rotation */
+@keyframes glowCardRotate {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5); /* Starting glow effect */
+        transform: rotateY(0deg); /* No rotation */
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 215, 0, 1); /* Intensified glow effect */
+        transform: rotateY(180deg); /* Rotate with the card */
+    }
+}
+
+/* Continuous glowing effect for the button */
+@keyframes glowButton {
+    0% {
+        box-shadow: 0 0 10px rgba(50, 205, 50, 0.5); /* Starting glow effect */
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(50, 205, 50, 1); /* Intensified glow effect */
+    }
+}
+
+/* Animation for fading in the fact */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Continuous glowing animation for text */
+@keyframes glowText {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Starting glow effect */
+    }
+    100% {
+        text-shadow: 0 0 20px rgb(255, 255, 255); /* Intensified glow effect */
+    }
+}

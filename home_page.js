@@ -38,7 +38,7 @@ i18next.init({
       translation: {
         "welcome": "Bienvenido a Flashhy",
         "shapes": "Formas",
-        "fruits": "Fruits & Veggies",
+        "fruits": "Frutas y Verduras",
         "about": "Informacion",
       }
     }
