@@ -47,36 +47,44 @@ function flipCardToFact() {
 
 // Play the fact sound if it hasn't already played for this fact
 function playFactSound() {
-    if (!isSoundPlayedForCurrentFact) {
-        const fact = facts[currentFactIndex];
-        
-        if (currentAudio) {
-            currentAudio.pause(); // Stop any currently playing sound
-            currentAudio.currentTime = 0; // Reset the audio to the beginning
-        }
-        currentAudio = new Audio(fact.audioSrc);
+    const fact = facts[currentFactIndex];
 
-        currentAudio.play().then(() => {
-            console.log('Fact audio started playing');
-        }).catch((error) => {
-            console.error('Error playing fact audio:', error);
-        });
-
-        // Mark the sound as played for the current fact
-        isSoundPlayedForCurrentFact = true;
-
-        // Re-enable the "Next" button once audio is done
-        currentAudio.addEventListener('ended', () => {
-            nextButton.disabled = false;
-            console.log('Next button enabled');
-        });
+    if (currentAudio) {
+        currentAudio.pause(); // Stop any currently playing sound
+        currentAudio.currentTime = 0; // Reset the audio to the beginning
     }
+
+    currentAudio = new Audio(fact.audioSrc);
+
+    // Play the audio and handle errors gracefully
+    currentAudio.play().then(() => {
+        console.log('Fact audio started playing');
+    }).catch((error) => {
+        console.error('Error playing fact audio:', error);
+        nextButton.disabled = false; // Enable the "Next" button even if there's an error
+    });
+
+    // Mark the sound as played for the current fact
+    isSoundPlayedForCurrentFact = true;
+
+    // Re-enable the "Next" button once audio is done playing
+    currentAudio.addEventListener('ended', () => {
+        nextButton.disabled = false;
+        console.log('Next button enabled');
+    });
 }
+
 
 // Event listener for card click
 card.addEventListener('click', () => {
     flipCardToFact(); // Flip the card and reveal fact with sound
+
+    // Play audio after flipping the card to fact
+    if (!isSoundPlayedForCurrentFact) {
+        playFactSound(); 
+    }
 });
+
 
 // Event listener for "Next" button to navigate to the next fact
 nextButton.addEventListener('click', () => {
@@ -92,8 +100,21 @@ nextButton.addEventListener('click', () => {
         updateImage();
         
         nextButton.disabled = true; // Disable the "Next" button until the sound is played
+        playFactSound(); // Play sound when the new fact is shown
     }, 500); // Adjust the delay to match the card flip animation duration
 });
 
+
 // Initialize with the first image (no sound or fact on initial load)
 updateImage();
+
+
+currentAudio = new Audio(fact.audioSrc);
+console.log('Playing audio:', fact.audioSrc);
+
+currentAudio.play().then(() => {
+    console.log('Fact audio started playing');
+}).catch((error) => {
+    console.error('Error playing fact audio:', error);
+    nextButton.disabled = false;
+});
