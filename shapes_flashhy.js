@@ -3,18 +3,18 @@ const facts = [
     { text: "Square", imgSrc: "square_f.png", audioSrc: "square_f.mp3" },
     { text: "Circle", imgSrc: "circle_f.png", audioSrc: "square_f.mp3" },
     { text: "Triangle", imgSrc: "triangle_f.png", audioSrc: "square_f.mp3" },
-    { text: "Fact 4: A rectangle has opposite sides equal!", imgSrc: "rectangle.jpg", audioSrc: "square_f.mp3" }
+    { text: "Rectangle", imgSrc: "rectangle_f.png", audioSrc: "square_f.mp3" }
 ];
 
 let currentFactIndex = 0;
-let isSoundPlayedForCurrentFact = false; // Track whether the sound has played for the current fact
+let currentAudio = null; // Variable to keep track of the currently playing audio
+let isCardFlipped = false; // Track whether the card is flipped
+let canFlipCard = true; // Flag to allow or disallow card flip
 
 // Select the fact, image, and audio elements
 const factElement = document.getElementById('fact');
 const cardImageElement = document.getElementById('card-image');
-const nextButton = document.getElementById('next-button');
 const card = document.getElementById('card');
-let currentAudio = null; // Variable to keep track of the currently playing audio
 
 // Function to update the image (card starts with the image first)
 function updateImage() {
@@ -26,8 +26,8 @@ function updateImage() {
         card.classList.remove('flipped');
     }
 
-    // Reset the sound-played flag for the new fact
-    isSoundPlayedForCurrentFact = false;
+    // Reset the flag for card flip
+    isCardFlipped = false;
 }
 
 // Function to update the fact text
@@ -36,19 +36,30 @@ function showFact() {
     factElement.textContent = fact.text; // Update the fact text when card flips
 }
 
-// Function to flip the card to the fact side
+// Function to flip the card to the fact side and play sound
 function flipCardToFact() {
-    if (!card.classList.contains('flipped')) {
+    if (!isCardFlipped && canFlipCard) {
         card.classList.add('flipped');
         showFact(); // Show the fact when the card flips
         playFactSound(); // Play the sound after the fact side is revealed
+        isCardFlipped = true; // Mark the card as flipped
+        canFlipCard = false; // Disable card flip until audio ends
+
+        // Move to the next card after the audio has finished
+        currentAudio.addEventListener('ended', () => {
+            setTimeout(() => {
+                goToNextCard();
+                canFlipCard = true; // Re-enable card flip for the next round
+            }, 500); // Delay before moving to the next card to give time for animations
+        });
     }
 }
 
-// Play the fact sound if it hasn't already played for this fact
+// Play the fact sound (only when card is flipped)
 function playFactSound() {
     const fact = facts[currentFactIndex];
 
+    // Stop any previously playing sound
     if (currentAudio) {
         currentAudio.pause(); // Stop any currently playing sound
         currentAudio.currentTime = 0; // Reset the audio to the beginning
@@ -61,60 +72,25 @@ function playFactSound() {
         console.log('Fact audio started playing');
     }).catch((error) => {
         console.error('Error playing fact audio:', error);
-        nextButton.disabled = false; // Enable the "Next" button even if there's an error
-    });
-
-    // Mark the sound as played for the current fact
-    isSoundPlayedForCurrentFact = true;
-
-    // Re-enable the "Next" button once audio is done playing
-    currentAudio.addEventListener('ended', () => {
-        nextButton.disabled = false;
-        console.log('Next button enabled');
     });
 }
 
+// Function to go to the next card
+function goToNextCard() {
+    card.classList.remove('flipped'); // Flip the card back to the image side
+    isCardFlipped = false; // Reset the flip state for the next fact
 
-// Event listener for card click
+    // Update to the next fact/image
+    currentFactIndex = (currentFactIndex + 1) % facts.length; // Cycle through facts
+
+    // Update the card with the new image
+    updateImage();
+}
+
+// Event listener for card click (flip card and play sound)
 card.addEventListener('click', () => {
     flipCardToFact(); // Flip the card and reveal fact with sound
-
-    // Play audio after flipping the card to fact
-    if (!isSoundPlayedForCurrentFact) {
-        playFactSound(); 
-    }
 });
-
-
-// Event listener for "Next" button to navigate to the next fact
-nextButton.addEventListener('click', () => {
-    // Flip the card back to the image side before changing the content
-    card.classList.remove('flipped');
-    
-    // Use a slight delay to ensure the card flip transition finishes
-    setTimeout(() => {
-        // Update to the next fact/image
-        currentFactIndex = (currentFactIndex + 1) % facts.length; // Cycle through facts
-
-        // Update the card with the new image
-        updateImage();
-        
-        nextButton.disabled = true; // Disable the "Next" button until the sound is played
-        playFactSound(); // Play sound when the new fact is shown
-    }, 500); // Adjust the delay to match the card flip animation duration
-});
-
 
 // Initialize with the first image (no sound or fact on initial load)
 updateImage();
-
-
-currentAudio = new Audio(fact.audioSrc);
-console.log('Playing audio:', fact.audioSrc);
-
-currentAudio.play().then(() => {
-    console.log('Fact audio started playing');
-}).catch((error) => {
-    console.error('Error playing fact audio:', error);
-    nextButton.disabled = false;
-});
