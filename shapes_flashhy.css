@@ -75,6 +75,7 @@ body {
 .card-front img {
     width: 95%;
     height: 95%;
+    image-resolution: 100%;
     object-fit: cover; /* Ensure the image covers the card without distortion */
     border-radius: 40px;
 }

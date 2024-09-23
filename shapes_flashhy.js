@@ -1,10 +1,19 @@
 // Array of facts with corresponding images and sounds
 const facts = [
     { text: "Square", imgSrc: "square_f.png", audioSrc: "square_f.mp3" },
-    { text: "Circle", imgSrc: "circle_f.png", audioSrc: "square_f.mp3" },
-    { text: "Triangle", imgSrc: "triangle_f.png", audioSrc: "square_f.mp3" },
-    { text: "Rectangle", imgSrc: "rectangle_f.png", audioSrc: "square_f.mp3" }
-];
+    { text: "Circle", imgSrc: "circle_f.png", audioSrc: "circle_f.mp3" },
+    { text: "Triangle", imgSrc: "triangle_f.png", audioSrc: "triangle_f.mp3" },
+    { text: "Rectangle", imgSrc: "rectangle_f.png", audioSrc: "rectangle_f.mp3" },
+    { text: "Diamond", imgSrc: "diamond_f.png", audioSrc: "diamond_f.mp3" },
+    { text: "Parellelogram", imgSrc: "parellelogram_f.png", audioSrc: "parellelogram_f.mp3" },
+    { text: "Ocatgon", imgSrc: "octagon_f.png", audioSrc: "octagon_f.mp3" },
+    { text: "Hexagon", imgSrc: "hexagon_f.png", audioSrc: "hexagon_f.mp3" },
+    { text: "Oval", imgSrc: "oval_f.png", audioSrc: "oval_f.mp3" },
+    { text: "Pentagon", imgSrc: "pentagon_f.png", audioSrc: "pentagon_f.mp3" }
+
+
+
+];  
 
 let currentFactIndex = 0;
 let currentAudio = null; // Variable to keep track of the currently playing audio
