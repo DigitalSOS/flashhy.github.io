@@ -9,9 +9,15 @@ const facts = [
     { text: "Ocatgon", imgSrc: "octagon_f.png", audioSrc: "octagon_f.mp3" },
     { text: "Hexagon", imgSrc: "hexagon_f.png", audioSrc: "hexagon_f.mp3" },
     { text: "Oval", imgSrc: "oval_f.png", audioSrc: "oval_f.mp3" },
-    { text: "Pentagon", imgSrc: "pentagon_f.png", audioSrc: "pentagon_f.mp3" }
-
-
+    { text: "Pentagon", imgSrc: "pentagon_f.png", audioSrc: "pentagon_f.mp3" },
+    { text: "Cloud", imgSrc: "cloud_f.png", audioSrc: "cloud_f.mp3" },
+    { text: "Cross", imgSrc: "cross_f.png", audioSrc: "cross_f.mp3" },
+    { text: "Heart", imgSrc: "heart_f.png", audioSrc: "heart_f.mp3" },
+    { text: "Moon", imgSrc: "moon_f.png", audioSrc: "moon_f.mp3" },
+    { text: "Trapezoid", imgSrc: "trapezoid_f.png", audioSrc: "trapezoid_f.mp3" },
+    { text: "Sun", imgSrc: "sun_f.png", audioSrc: "sun_f.mp3" },
+    { text: "Star", imgSrc: "star_f.png", audioSrc: "star_f.mp3" },
+    { text: "Smiley Face", imgSrc: "smiley_f.png", audioSrc: "smiley_f.mp3" }
 
 ];  
 
