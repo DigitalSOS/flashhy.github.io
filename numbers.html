@@ -3,9 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Learn Numbers</title>
+  <title>Numbers</title>
   <link rel="stylesheet" href="numbers.css">
 </head>
+    <!-- Home Button -->
+    <div class="home-button" id="home-button">
+        <img src="home1.png" alt="Home Icon">
+    </div>
+
 <body>
   <div class="container">
     <h1 id="numberDisplay" class="flip-in">1</h1>
@@ -15,8 +20,11 @@
     </div>
     <button onclick="nextNumber()">Next</button>
   </div>
-  <audio id="numberAudio" src="audio/one.mp3"></audio>
+  <audio id="numberAudio" src="one.mp3"></audio>
 
   <script src="numbers.js"></script>
+
+  <script src="home_button.js"></script>
+
 </body>
 </html>

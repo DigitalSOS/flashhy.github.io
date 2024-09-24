@@ -29,6 +29,7 @@ i18next.init({
       translation: {
         "welcome": "Welcome to Flashhy",
         "shapes": "Shapes",
+        "numbers": "Numbers",
         "shapes_matching": "Matching",
         "fruits": "Fruits & Veggies",
         "about": "About",
@@ -39,6 +40,7 @@ i18next.init({
       translation: {
         "welcome": "Bienvenido a Flashhy",
         "shapes": "Formas",
+        "numbers": "Numeros",
         "shapes_matching": "Pareo",
         "fruits": "Frutas y Verduras",
         "about": "Informacion",
@@ -63,6 +65,7 @@ function changeLanguage(lng) {
 function updateContent() {
   document.getElementById('welcome-text').innerText = i18next.t('welcome');
   document.getElementById('shapes-btn').innerText = i18next.t('shapes');
+  document.getElementById('numbers-btn').innerText = i18next.t('numbers');
   document.getElementById('shapes_matching-btn').innerText = i18next.t('shapes_matching');
   document.getElementById('fruits-btn').innerText = i18next.t('fruits');
   document.getElementById('about-btn').innerText = i18next.t('about');
