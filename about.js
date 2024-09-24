@@ -28,7 +28,7 @@ function navigateTo(page) {
       en: {
         translation: {
           "welcome": "Developed by Digital SOS",
-          "version": "Flashhy Version 1.4",
+          "version": "Flashhy Version 1.5",
           "home": "Go to Home",
           "beta": "Beta"
         }
@@ -36,7 +36,7 @@ function navigateTo(page) {
       es: {
         translation: {
           "welcome": "Desarrollado por Digital SOS",
-          "version": "Flashhy Versión 1.4",
+          "version": "Flashhy Versión 1.5",
           "home": "Ir a casa",
           "beta": "Beta"
 
