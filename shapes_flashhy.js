@@ -16,6 +16,7 @@ const facts = [
     { text: "Moon", imgSrc: "moon_f.png", audioSrc: "moon_f.mp3" },
     { text: "Trapezoid", imgSrc: "trapezoid_f.png", audioSrc: "trapezoid_f.mp3" },
     { text: "Sun", imgSrc: "sun_f.png", audioSrc: "sun_f.mp3" },
+    { text: "Lightening Bolt", imgSrc: "lighteningbolt_f.png", audioSrc: "lighteningbolt_f.mp3" },
     { text: "Star", imgSrc: "star_f.png", audioSrc: "star_f.mp3" },
     { text: "Smiley Face", imgSrc: "smiley_f.png", audioSrc: "smiley_f.mp3" }
 
@@ -65,7 +66,7 @@ function flipCardToFact() {
             setTimeout(() => {
                 goToNextCard();
                 canFlipCard = true; // Re-enable card flip for the next round
-            }, 500); // Delay before moving to the next card to give time for animations
+            }, 100); // Delay before moving to the next card to give time for animations
         });
     }
 }
