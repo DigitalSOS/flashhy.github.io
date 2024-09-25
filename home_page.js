@@ -32,6 +32,7 @@ i18next.init({
         "numbers": "Numbers",
         "shapes_matching": "Matching",
         "fruits": "Fruits & Veggies",
+        "memory": "Memory",
         "about": "About",
 
       }
@@ -43,6 +44,7 @@ i18next.init({
         "numbers": "Numeros",
         "shapes_matching": "Pareo",
         "fruits": "Frutas y Verduras",
+        "memory": "Memoria",
         "about": "Informacion",
       }
     }
@@ -67,6 +69,7 @@ function updateContent() {
   document.getElementById('shapes-btn').innerText = i18next.t('shapes');
   document.getElementById('numbers-btn').innerText = i18next.t('numbers');
   document.getElementById('shapes_matching-btn').innerText = i18next.t('shapes_matching');
+  document.getElementById('memory-btn').innerText = i18next.t('memory');
   document.getElementById('fruits-btn').innerText = i18next.t('fruits');
   document.getElementById('about-btn').innerText = i18next.t('about');
 

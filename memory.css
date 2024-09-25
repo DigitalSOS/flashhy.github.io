@@ -1,8 +1,6 @@
 * {
     box-sizing: border-box;
-    color: #fffdfd;
-
-
+    color: #c0a2fd;
 }
 
 body {
@@ -16,8 +14,6 @@ body {
     padding: 0;
     text-align: center;
 }
-
-
 
 .game-container {
     text-align: center;
@@ -57,7 +53,7 @@ body {
 }
 
 .card-front {
-    background-color: #fff;
+    background-color: #c0a2fd;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,7 +64,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff; /* Background for the back of the card */
+    background-color: #c0a2fd; /* Background for the back of the card */
+    transform: rotateY(180deg); /* Start the back rotated */
 }
 
 .card-back img {
@@ -91,44 +88,79 @@ body {
     pointer-events: none; /* Prevent clicks on matched cards */
 }
 
-/* Smoother shake animation */
+/* Smoother shake animation for incorrect matches */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.shake {
+    animation: shake 0.5s; 
+}
+
+/* Animation for correctly matched cards disappearing */
+@keyframes disappear {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+    100% { opacity: 0; transform: scale(0); }
+}
+
+.disappear {
+    opacity: 0; /* Add a fade-out effect for disappearing cards */
+    transition: opacity 0.6s ease; /* Ensure smooth transition */
+}
+/* Enhanced glowing effects for selected and matched cards */
+.glow-select {
+    animation: glowing 1s infinite alternate;
+    box-shadow: 0 0 40px yellow;
+}
+
+.glow-match {
+    animation: glowing 1s infinite alternate;
+    box-shadow: 0 0 20px #00ff00, 0 0 40px #00ff00, 0 0 60px #00ff00;
+}
+
+
+/* Keyframes for glowing effect */
+@keyframes glowing {
+    0% { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
+    50% { box-shadow: 0 0 40px #ff00ff, 0 0 60px #ff00ff; }
+    100% { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
+}
+
+/* Pop effect for matched cards */
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Shake animation for incorrect matches */
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
     20%, 60% { transform: translateX(-10px); }
     40%, 80% { transform: translateX(10px); }
 }
 
+/* Applying shake animation */
 .shake {
-    animation: shake 0.6s ease-in-out;
+    animation: shake 0.6s ease forwards;
 }
 
-.glowing {
-    animation: glowing 1s infinite;
-}
-
-/* Glowing effect for selected cards */
-.glow-select {
-    animation: glowing 1s infinite alternate;
-}
-
-/* Glowing effect for matched cards */
-.glow-match {
-    animation: glowing 1s infinite alternate;
-    box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
-}
-
-/* Glowing effect for wrong matches */
+/* Glow effect for wrong matches */
 .glow-wrong {
     animation: glowing 1s infinite alternate;
-    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000;
+    box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000, 0 0 60px #ff0000;
 }
 
-/* Existing glowing keyframes */
-@keyframes glowing {
-    0% { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
-    50% { box-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff; }
-    100% { box-shadow: 0 0 5px #fff, 0 0 10px #fff; }
+.disabled {
+    pointer-events: none; /* Prevents interaction */
+    opacity: 0.5; /* Optional: visually indicate disabled state */
 }
+
 
 
 #congrats-message {
@@ -216,6 +248,18 @@ body {
     box-shadow: 0 0 20px #ff0000, 0 0 40px #ff0000;
     transform: scale(1.1);
 }
+
+/* Disappear animation */
+@keyframes disappear {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.2); }
+    100% { opacity: 0; transform: scale(0); }
+}
+
+.disappear {
+    animation: disappear 0.6s forwards; /* Adjust duration as needed */
+}
+
 
 
 
