@@ -54,7 +54,7 @@ function createBoard() {
 
 // Flip card logic
 function flipCard() {
-    if (lockBoard || this.classList.contains('matched') || this.classList.contains('disabled')) return;
+    if (lockBoard || this === firstCard || this.classList.contains('matched') || this.classList.contains('disabled')) return; // Prevent same card double-click
 
     this.classList.add('flipped'); // Add flip class for the animation
     const cardInner = this.querySelector('.card-inner');
